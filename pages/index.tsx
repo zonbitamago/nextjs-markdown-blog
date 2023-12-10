@@ -15,7 +15,7 @@ export const getServerSideProps = (async () => {
   const directories = fs.readdirSync(CONTENT_DIR);
   console.log("directories:", directories);
 
-  const posts = directories.map((directory) => {
+  let posts = directories.map((directory) => {
     const slug = directory.replace(/\.md$/, "");
     const fileContent = fs.readFileSync(
       `${CONTENT_DIR}/${directory}/index.md`,
@@ -28,6 +28,11 @@ export const getServerSideProps = (async () => {
       slug: slug,
     };
   });
+
+  posts = posts.sort((a, b) => {
+    return a.frontMatter.date > b.frontMatter.date ? -1 : 1;
+  });
+
   return {
     props: {
       posts: posts,
@@ -41,8 +46,8 @@ export default function Home({
   posts,
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   return (
-    <div className="my-8">
-      <div className="grid grid-cols-3">
+    <div className="my-8 mx-10 flex justify-center">
+      <div className="grid grid-cols-3 gap-x-10">
         {posts.map((post, idx) => {
           return <PostCard key={idx} {...post} />;
         })}

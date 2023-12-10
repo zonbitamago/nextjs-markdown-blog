@@ -1,6 +1,6 @@
 ---
-title: "Next.jsでmarkdownブログを構築"
-date: "2022-07-13 12:00:00"
+title: "Next.jsでmarkdownブログを構築3"
+date: "2022-07-14 14:00:00"
 description: "Next.jsでmarkdownファイルを利用したブログの構築手順を解説しています。"
 hero: "sample.png"
 ---

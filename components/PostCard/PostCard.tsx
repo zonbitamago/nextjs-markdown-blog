@@ -6,11 +6,11 @@ import Link from "next/link";
 const PostCard = (post: Post) => {
   return (
     <Link href={`/posts/${post.slug}`}>
-      <div className="border rounded-lg">
+      <div className="rounded-lg">
         <Image
           src={`${BLOG_IMAGE_DIR}/${post.slug}/${post.frontMatter.hero}`}
-          width={1200}
-          height={700}
+          width={250}
+          height={150}
           alt={post.frontMatter.title}
         />
       </div>
