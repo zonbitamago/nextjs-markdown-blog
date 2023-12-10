@@ -13,7 +13,6 @@ export type Post = {
 
 export const getServerSideProps = (async () => {
   const directories = fs.readdirSync(CONTENT_DIR);
-  console.log("directories:", directories);
 
   let posts = directories.map((directory) => {
     const slug = directory.replace(/\.md$/, "");
