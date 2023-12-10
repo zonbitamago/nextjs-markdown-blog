@@ -1,0 +1,11 @@
+{
+  "recommendations": [
+    "bradlc.vscode-tailwindcss",
+    "dsznajder.es7-react-js-snippets",
+    "ms-ceintl.vscode-language-pack-ja",
+    "xabikos.javascriptsnippets",
+    "ms-vscode.vscode-typescript-next",
+    "capaj.vscode-standardjs-snippets",
+    "esbenp.prettier-vscode"
+  ]
+}
