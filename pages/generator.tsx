@@ -8,7 +8,9 @@ const Generator = () => {
   return (
     <div>
       Generator
+      <hr />
       <ArticleEditor />
+      <hr />
     </div>
   );
 };
