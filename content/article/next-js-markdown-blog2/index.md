@@ -2,6 +2,7 @@
 title: "Next.jsでmarkdownブログを構築2"
 date: "2022-07-14 13:00:00"
 description: "Next.jsでmarkdownファイルを利用したブログの構築手順を解説しています。"
+tags: ["タグ1", "タグ2"]
 hero: "sample.png"
 ---
 

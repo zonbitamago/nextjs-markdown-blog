@@ -6,7 +6,11 @@ import { GetServerSideProps, InferGetServerSidePropsType } from "next";
 
 export type Post = {
   frontMatter: {
-    [key: string]: string;
+    title: string;
+    date: string;
+    description: string;
+    tags: string[];
+    hero: string;
   };
   slug: string;
 };
@@ -23,7 +27,13 @@ export const getServerSideProps = (async () => {
     const { data, content } = matter(fileContent);
 
     return {
-      frontMatter: data,
+      frontMatter: {
+        title: data.title,
+        date: data.date,
+        description: data.description,
+        tags: data.tags,
+        hero: data.hero,
+      },
       slug: slug,
     };
   });

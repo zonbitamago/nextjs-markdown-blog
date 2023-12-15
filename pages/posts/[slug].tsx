@@ -1,11 +1,16 @@
 import { BLOG_IMAGE_DIR, CONTENT_DIR } from "@/app/constants";
+import Tag from "@/components/Tag/Tag";
 import fs from "fs";
 import matter from "gray-matter";
 import { marked } from "marked";
 import Image from "next/image";
 
 type FrontMatter = {
-  [key: string]: string;
+  title: string;
+  date: string;
+  description: string;
+  tags: string[];
+  hero: string;
 };
 
 type Params = {
@@ -20,7 +25,19 @@ export async function getStaticProps({ params }: Params) {
     "utf-8"
   );
   const { data, content } = matter(fileContent);
-  return { props: { frontMatter: data, content: content, slug: params.slug } };
+  return {
+    props: {
+      frontMatter: {
+        title: data.title,
+        date: data.date,
+        description: data.description,
+        tags: data.tags,
+        hero: data.hero,
+      },
+      content: content,
+      slug: params.slug,
+    },
+  };
 }
 
 export async function getStaticPaths() {
@@ -63,6 +80,11 @@ const Post = ({
         />
       </div>
       <h1 className="mt-12">{frontMatter.title}</h1>
+      <span>{frontMatter.date}</span>
+      <br />
+      {frontMatter.tags.map((tag) => {
+        return <Tag tag={tag} />;
+      })}
       <div dangerouslySetInnerHTML={{ __html: marked(content) }} />
     </div>
   );
