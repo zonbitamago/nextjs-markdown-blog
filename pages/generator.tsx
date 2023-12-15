@@ -1,17 +1,13 @@
-import "@toast-ui/editor/dist/toastui-editor.css";
-import { Editor } from "@toast-ui/react-editor";
+import dynamic from "next/dynamic";
 
 const Generator = () => {
+  const MarkdownEditor = dynamic(() => import("@/components/MarkdownEditor/MarkdownEditor"),{ssr:false})
   return (
     <div>
       Generator
       <hr />
-      <Editor
+      <MarkdownEditor
         initialValue="hello react editor world!"
-        previewStyle="vertical"
-        height="600px"
-        initialEditType="markdown"
-        useCommandShortcut={true}
       />
       <hr />
     </div>
