@@ -82,8 +82,8 @@ const Post = ({
       <h1 className="mt-12">{frontMatter.title}</h1>
       <span>{frontMatter.date}</span>
       <br />
-      {frontMatter.tags.map((tag) => {
-        return <Tag tag={tag} />;
+      {frontMatter.tags.map((tag, idx) => {
+        return <Tag key={idx} tag={tag} />;
       })}
       <div dangerouslySetInnerHTML={{ __html: marked(content) }} />
     </div>
