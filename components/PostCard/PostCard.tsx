@@ -3,6 +3,7 @@ import { Post } from "@/pages";
 import Image from "next/image";
 import Link from "next/link";
 import Tag from "../Tag/Tag";
+import Like from "../Like/Like";
 
 const PostCard = (post: Post) => {
   const tags = post.frontMatter.tags;
@@ -23,6 +24,8 @@ const PostCard = (post: Post) => {
           <br />
         </div>
       </Link>
+      <Like />
+      <br />
       {tags.map((tag, idx) => {
         return <Tag key={idx} tag={tag} />;
       })}
